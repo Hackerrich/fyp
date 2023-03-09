@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:framed_by/pages/auth_checker.dart';
 import 'package:framed_by/services/services.dart';
 import 'package:framed_by/utils/api.dart';
+import 'package:pretty_http_logger/pretty_http_logger.dart';
 
 class AuthenticationController extends GetxController {
   final AuthService authService = AuthService();
@@ -11,13 +12,17 @@ class AuthenticationController extends GetxController {
   var loading = false.obs;
   Future<void> login({required String email, required String password}) async {
     try {
+      print("Inside Login");
       var data = {'username': email, 'password': password};
       loading.value = true;
-      print('aayo');
+      HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
+        HttpLogger(logLevel: LogLevel.BODY),
+      ]);
+
       var response = await http.post(Uri.parse(LOGINAPI),
           body: data,
           headers: {"Access-Control-Allow-Origin": "*", 'Accept': '*/*'});
-      print('aayo aayo');
+
       loading.value = false;
       var decodedResponse = await jsonDecode(response.body);
 

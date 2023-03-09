@@ -1,3 +1,3 @@
-const baseUrl = "http://172.16.18.218/test/";
-const SIGNUPAPI = '${baseUrl}signup.ph';
+const baseUrl = "http://192.168.1.84/Test/";
+const SIGNUPAPI = '${baseUrl}signup.php';
 const LOGINAPI = '${baseUrl}login.php';
