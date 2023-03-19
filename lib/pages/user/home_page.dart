@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:framed_by/pages/user/book_now.dart';
+import 'package:framed_by/pages/user/notification_page.dart';
+import 'package:framed_by/pages/user/profile.dart';
 import 'package:get/get.dart';
 import 'package:framed_by/pages/auth_checker.dart';
 import 'package:framed_by/services/services.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomePage extends StatelessWidget {
+  List pages = [
+    HomePage(),
+    bookNow(),
+    notification(),
+    profile(),
+  ];
+  int currentIndex = 0;
+  void onTap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   AuthService authService = AuthService();
   HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: pages[currentIndex],
       appBar: AppBar(
         backgroundColor: Colors.amber,
         elevation: 8,
@@ -24,6 +41,7 @@ class HomePage extends StatelessWidget {
               icon: const Icon(Icons.logout)),
         ],
       ),
+
       // ignore: prefer_const_constructors
       bottomNavigationBar: Container(
         color: Colors.black,
@@ -57,6 +75,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+
       // bottomNavigationBar: BottomNavigationBar(
       //   backgroundColor:
       //       Colors.blue, // sets the background color of the BottomNavigationBar
@@ -74,4 +93,6 @@ class HomePage extends StatelessWidget {
       // ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
