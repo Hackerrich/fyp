@@ -6,16 +6,16 @@ import 'package:framed_by/pages/merchant/tabs/bookings.dart';
 import 'package:framed_by/pages/merchant/tabs/home.dart';
 import 'package:framed_by/pages/admin/tabs/profile.dart';
 
-class MerchantHome extends StatefulWidget {
-  const MerchantHome({
+class PhotographerHome extends StatefulWidget {
+  const PhotographerHome({
     Key? key,
   }) : super(key: key);
 
   @override
-  _MerchantHomeState createState() => _MerchantHomeState();
+  _PhotographerHomeState createState() => _PhotographerHomeState();
 }
 
-class _MerchantHomeState extends State<MerchantHome> {
+class _PhotographerHomeState extends State<PhotographerHome> {
   final _tabController = StreamController<AppTab>.broadcast();
   final _initTab = AppTab.home;
 

@@ -1,4 +1,4 @@
-const baseUrl = "http://192.168.1.83/Test/";
+const baseUrl = "http://192.168.1.83/Backend/";
 
 const SIGNUPAPI = '${baseUrl}signup.php';
 const LOGINAPI = '${baseUrl}login.php';
@@ -10,3 +10,5 @@ const ADD_DOCTOR = '${baseUrl}addDoctors.php';
 const CATEGORYGETAPI = '${baseUrl}getCategories.php';
 const GETMERCHANTAPI = '${baseUrl}getMerchant.php';
 const ADD_CATEGORY = '${baseUrl}addCategory.php';
+const FREELANCERGETAPI = '${baseUrl}getDoctors.php';
+const ADD_FREELANCER = '${baseUrl}addFreelancer.php';

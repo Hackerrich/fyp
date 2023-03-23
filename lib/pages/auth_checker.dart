@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:framed_by/pages/user/home_page.dart';
+import 'package:framed_by/pages/photographer/merchant_home.dart';
+import 'package:framed_by/pages/user/user_home_page.dart';
 import 'package:get/get.dart';
 import 'package:framed_by/pages/login.dart';
-import 'package:framed_by/services/services.dart';
+import 'package:framed_by/services/auth_service.dart';
 import 'admin/admin_home.dart';
-import 'photographer/photographer_home.dart';
 
 class AuthChecker extends StatefulWidget {
   const AuthChecker({super.key});
