@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:framed_by/pages/admin/tabs/notification_page.dart';
 import 'package:tabnavigator/tabnavigator.dart';
 import 'package:framed_by/pages/merchant/tabs/bookings.dart';
 import 'package:framed_by/pages/merchant/tabs/home.dart';
@@ -32,7 +33,12 @@ class _MerchantHomeState extends State<MerchantHome> {
       return const Profile(
         isMerchant: true,
       );
-    }
+    },
+    AppTab.notification: () {
+      return const Profile(
+        isMerchant: true,
+      );
+    },
   };
 
   Widget _buildBody() {
@@ -43,21 +49,57 @@ class _MerchantHomeState extends State<MerchantHome> {
     );
   }
 
+  // Widget _buildbottomNavigationBar() {
+  //   return StreamBuilder<AppTab>(
+  //     stream: tabStream,
+  //     initialData: _initTab,
+  //     builder: (context, snapshot) {
+  //       return BottomNavigationBar(
+  //         backgroundColor: Colors.blue,
+  //         items: const <BottomNavigationBarItem>[
+  //           BottomNavigationBarItem(
+  //             icon: Icon(Icons.feedback),
+  //             label: 'Home',
+  //           ),
+  //           BottomNavigationBarItem(
+  //             icon: Icon(Icons.feedback),
+  //             label: 'Book now',
+  //           ),
+  //           BottomNavigationBarItem(
+  //             icon: Icon(Icons.notifications),
+  //             label: 'Notification',
+  //           ),
+  //           BottomNavigationBarItem(
+  //             icon: Icon(Icons.person),
+  //             label: 'Profile',
+  //           ),
+  //         ],
+  //         currentIndex: snapshot.hasData ? snapshot.data!.value : 0,
+  //         onTap: (value) => _tabController.sink.add(AppTab.byValue(value)),
+  //       );
+  //     },
+  //   );
+  // }
+
   Widget _buildbottomNavigationBar() {
     return StreamBuilder<AppTab>(
       stream: tabStream,
       initialData: _initTab,
       builder: (context, snapshot) {
         return BottomNavigationBar(
-          selectedItemColor: Colors.orange,
+          backgroundColor: Colors.blueGrey,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.feedback),
-              label: 'Report',
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+              icon: Icon(Icons.feedback),
+              label: 'Book now',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications),
+              label: 'Notification',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
@@ -92,6 +134,7 @@ class AppTab extends TabType {
   static const report = AppTab._(0);
   static const home = AppTab._(1);
   static const profile = AppTab._(2);
+  static const notification = AppTab._(3);
 
   static AppTab byValue(int value) {
     switch (value) {
@@ -101,6 +144,8 @@ class AppTab extends TabType {
         return home;
       case 2:
         return profile;
+      case 3:
+        return notification;
       default:
         throw Exception('no tab for such value');
     }

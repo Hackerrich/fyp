@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:framed_by/pages/admin/tabs/notification_page.dart';
 import 'package:tabnavigator/tabnavigator.dart';
 import 'package:framed_by/pages/merchant/tabs/bookings.dart';
 import 'package:framed_by/pages/merchant/tabs/home.dart';
@@ -22,17 +23,20 @@ class _PhotographerHomeState extends State<PhotographerHome> {
   Stream<AppTab> get tabStream => _tabController.stream;
 
   final _map = <AppTab, TabBuilder>{
-    AppTab.report: () {
+    AppTab.bookNow: () {
       return const Booking();
     },
     AppTab.home: () {
       return const Home();
     },
+    AppTab.notification: () {
+      return const notification();
+    },
     AppTab.profile: () {
       return const Profile(
         isMerchant: true,
       );
-    }
+    },
   };
 
   Widget _buildBody() {
@@ -49,15 +53,20 @@ class _PhotographerHomeState extends State<PhotographerHome> {
       initialData: _initTab,
       builder: (context, snapshot) {
         return BottomNavigationBar(
-          selectedItemColor: Colors.orange,
+          unselectedItemColor: Colors.black,
+          selectedItemColor: Colors.black,
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.feedback),
-              label: 'Report',
-            ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add),
+              label: 'BookNow',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications),
+              label: 'Notifications',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
@@ -89,17 +98,20 @@ class _PhotographerHomeState extends State<PhotographerHome> {
 class AppTab extends TabType {
   const AppTab._(int value) : super(value);
 
-  static const report = AppTab._(0);
-  static const home = AppTab._(1);
-  static const profile = AppTab._(2);
+  static const home = AppTab._(0);
+  static const bookNow = AppTab._(1);
+  static const notification = AppTab._(2);
+  static const profile = AppTab._(3);
 
   static AppTab byValue(int value) {
     switch (value) {
       case 0:
-        return report;
-      case 1:
         return home;
+      case 1:
+        return bookNow;
       case 2:
+        return notification;
+      case 3:
         return profile;
       default:
         throw Exception('no tab for such value');

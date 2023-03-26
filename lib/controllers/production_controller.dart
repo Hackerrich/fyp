@@ -49,7 +49,7 @@ class ProductionController extends GetxController {
   toggle({data}) async {
     var token = await authService.getToken();
     data["token"] = token;
-    var response = await http.post(Uri.parse(TOGGLE_DOCTOR), body: data);
+    var response = await http.post(Uri.parse(TOGGLE_PHOTOGRAPHER), body: data);
     isLoading.value = false;
     var decodedResponse = await jsonDecode(response.body);
     if (decodedResponse["success"]) {

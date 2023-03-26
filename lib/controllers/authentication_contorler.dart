@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:framed_by/pages/auth_checker.dart';
 
 import 'package:framed_by/utils/api.dart';
-import 'package:pretty_http_logger/pretty_http_logger.dart';
 
 import '../services/auth_service.dart';
 
