@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:framed_by/services/services.dart';
 import 'package:get/get.dart';
 import 'package:framed_by/components/app_button.dart';
 import 'package:framed_by/pages/auth_checker.dart';
