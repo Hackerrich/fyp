@@ -2,18 +2,19 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:framed_by/models/freeelancer.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
+import 'package:framed_by/services/auth_service.dart';
+
 import 'package:framed_by/utils/api.dart';
 
-import '../models/production.dart';
-import '../services/auth_service.dart';
-
-class ProductionController extends GetxController {
+class FreelancerController extends GetxController {
   AuthService authService = AuthService();
   var isLoading = false.obs;
-  List<Production> productionList = RxList.empty();
+  var loading = false.obs;
+  List<Freelancer> freelancerList = RxList.empty();
   @override
   void onInit() {
     // TODO: implement onInit
@@ -46,6 +47,23 @@ class ProductionController extends GetxController {
     }
   }
 
+  Future<void> register(
+      {required String username, required String password}) async {
+    var data = {'username': username, 'password': password};
+    loading.value = true;
+    var response = await http.post(Uri.parse(FREELANCERADDAPI), body: data);
+    loading.value = false;
+    var decodedResponse = await jsonDecode(response.body);
+    if (decodedResponse["success"]) {
+      Get.back();
+      Get.snackbar("Success", decodedResponse["message"],
+          backgroundColor: Colors.white);
+    } else {
+      Get.snackbar("Failed", decodedResponse["message"],
+          backgroundColor: Colors.white);
+    }
+  }
+
   toggle({data}) async {
     var token = await authService.getToken();
     data["token"] = token;
@@ -67,10 +85,10 @@ class ProductionController extends GetxController {
     isLoading.value = false;
     var decodedResponse = await jsonDecode(response.body);
     if (decodedResponse["success"]) {
-      productionList.clear();
-      var doctors = await decodedResponse["data"];
-      for (var doctor in doctors) {
-        productionList.add(Production.fromJson(doctor));
+      freelancerList.clear();
+      var Freelancers = await decodedResponse["data"];
+      for (var Freelancer in Freelancers) {
+        freelancerList.add(Freelancer.fromJson(Freelancer));
       }
       Get.snackbar("Success", decodedResponse["message"],
           backgroundColor: Colors.white);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:framed_by/pages/photographer/merchant_home.dart';
+import 'package:framed_by/pages/freelancers/freelancers_home.dart';
 import 'package:framed_by/pages/user/user_home_page.dart';
 import 'package:get/get.dart';
 import 'package:framed_by/pages/login.dart';
@@ -29,8 +29,8 @@ class _AuthCheckerState extends State<AuthChecker> {
       var role = await authService.getRole();
 
       switch (role) {
-        case 'merchant':
-          Get.offAll(() => PhotographerHome());
+        case 'freelancer':
+          Get.offAll(() => const FreelancersHome());
           break;
         case 'admin':
           Get.offAll(() => const AdminHome());

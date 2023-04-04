@@ -14,13 +14,14 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:framed_by/controllers/freelancers_controller.dart';
+import 'package:framed_by/models/RegisterFreeelancers.dart';
 import 'package:get/get.dart';
 import 'package:framed_by/components/card_button.dart';
-import 'package:framed_by/controllers/merchant_controller.dart';
-import 'package:framed_by/models/merchant.dart';
 
 class Report extends StatelessWidget {
-  final MerchantController merchantController = Get.put(MerchantController());
+  final FreelancersController freelancerController =
+      Get.put(FreelancersController());
   Report({super.key});
 
   @override
@@ -32,10 +33,10 @@ class Report extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Wrap(
-          children: merchantController.merchantsList
-              .map((Merchant merchant) => Cardbutton(
+          children: freelancerController.freelancersList
+              .map((Freelancers freelancers) => Cardbutton(
                     onTap: () {},
-                    lable: merchant.username,
+                    lable: freelancers.username,
                   ))
               .toList(),
         ),

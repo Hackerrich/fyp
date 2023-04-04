@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:framed_by/components/card_button.dart';
-import 'package:framed_by/pages/merchant/category_page.dart';
-import 'package:framed_by/pages/merchant/production_page.dart';
+import 'package:framed_by/pages/freelancers/category_page.dart';
+import 'package:framed_by/pages/freelancers/production_page.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

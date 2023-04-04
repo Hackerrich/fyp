@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:framed_by/pages/admin/tabs/notification_page.dart';
 import 'package:tabnavigator/tabnavigator.dart';
-import 'package:framed_by/pages/merchant/tabs/bookings.dart';
-import 'package:framed_by/pages/merchant/tabs/home.dart';
+import 'package:framed_by/pages/freelancers/tabs/bookings.dart';
+import 'package:framed_by/pages/freelancers/tabs/home.dart';
 import 'package:framed_by/pages/admin/tabs/profile.dart';
 
 class PhotographerHome extends StatefulWidget {
@@ -34,7 +34,7 @@ class _PhotographerHomeState extends State<PhotographerHome> {
     },
     AppTab.profile: () {
       return const Profile(
-        isMerchant: true,
+        isFreelancers: true,
       );
     },
   };

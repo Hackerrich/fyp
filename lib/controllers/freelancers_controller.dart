@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:framed_by/models/merchant.dart';
+import 'package:framed_by/models/RegisterFreeelancers.dart';
 import 'package:framed_by/utils/api.dart';
 
-class MerchantController extends GetxController {
+class FreelancersController extends GetxController {
   var loading = false.obs;
-  List<Merchant> merchantsList = RxList.empty();
+  List<Freelancers> freelancersList = RxList.empty();
   @override
   void onInit() {
     // TODO: implement onInit
@@ -20,7 +20,7 @@ class MerchantController extends GetxController {
       {required String username, required String password}) async {
     var data = {'username': username, 'password': password};
     loading.value = true;
-    var response = await http.post(Uri.parse(MERCAHNTADDAPI), body: data);
+    var response = await http.post(Uri.parse(FREELANCERADDAPI), body: data);
     loading.value = false;
     var decodedResponse = await jsonDecode(response.body);
     if (decodedResponse["success"]) {
@@ -36,16 +36,16 @@ class MerchantController extends GetxController {
   Future<void> get() async {
     loading.value = true;
     var response = await http.get(
-      Uri.parse(MERCAHNTGETAPI),
+      Uri.parse(FREELANCERGETAPI),
     );
     loading.value = false;
     var decodedResponse = await jsonDecode(response.body);
     if (decodedResponse["success"]) {
-      var merchants = await decodedResponse["data"];
-      for (var merchant in merchants) {
-        merchantsList.add(Merchant.fromJson(merchant));
+      var freelancers = await decodedResponse["data"];
+      for (var freelancer in freelancers) {
+        freelancersList.add(freelancer.fromJson(freelancer));
       }
-      print(merchantsList);
+      print(freelancersList);
 
       Get.snackbar("Success", decodedResponse["message"],
           backgroundColor: Colors.white);

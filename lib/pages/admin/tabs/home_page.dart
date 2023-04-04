@@ -85,7 +85,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:framed_by/components/card_button.dart';
 
-import '../add_merchant.dart';
+import '../add_freelancers.dart';
 
 // import 'package:framed_by/pages/admin/add_merchant.dart';
 
@@ -102,7 +102,7 @@ class Home extends StatelessWidget {
       body: Wrap(
         children: [
           Cardbutton(
-            lable: "Add Merchant",
+            lable: "Add Freelancers",
             onTap: () {
               Get.bottomSheet(AddMerchant());
             },

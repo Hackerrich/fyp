@@ -12,18 +12,22 @@ class Categories {
   Categories({
     this.id,
     this.name,
+    this.price,
   });
 
   String? id;
   String? name;
+  String? price;
 
   factory Categories.fromJson(Map<String, dynamic> json) => Categories(
         id: json["category_id"],
         name: json["name"],
+        price: json["price"],
       );
 
   Map<String, dynamic> toJson() => {
         "category_id": id,
         "name": name,
+        "price": price,
       };
 }

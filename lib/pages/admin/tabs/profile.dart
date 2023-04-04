@@ -5,14 +5,14 @@ import 'package:framed_by/pages/auth_checker.dart';
 import 'package:framed_by/services/auth_service.dart';
 
 class Profile extends StatelessWidget {
-  final bool isMerchant;
-  const Profile({super.key, this.isMerchant = false});
+  final bool isFreelancers;
+  const Profile({super.key, this.isFreelancers = false});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: isMerchant ? Colors.amber : Colors.black,
+        backgroundColor: isFreelancers ? Colors.amber : Colors.black,
         title: const Text("Profile"),
       ),
       body: Column(

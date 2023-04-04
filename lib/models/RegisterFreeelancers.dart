@@ -1,17 +1,17 @@
 // To parse this JSON data, do
 //
-//     final merchant = merchantFromJson(jsonString);
+//     final Freelancers = FreelancerFromJson(jsonString);
 
 import 'dart:convert';
 
-List<Merchant> merchantFromJson(String str) =>
-    List<Merchant>.from(json.decode(str).map((x) => Merchant.fromJson(x)));
+List<Freelancers> freelancerFromJson(String str) => List<Freelancers>.from(
+    json.decode(str).map((x) => Freelancers.fromJson(x)));
 
-String merchantToJson(List<Merchant> data) =>
+String freelancerToJson(List<Freelancers> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Merchant {
-  Merchant({
+class Freelancers {
+  Freelancers({
     required this.id,
     required this.username,
     required this.password,
@@ -23,7 +23,7 @@ class Merchant {
   String password;
   String role;
 
-  factory Merchant.fromJson(Map<String, dynamic> json) => Merchant(
+  factory Freelancers.fromJson(Map<String, dynamic> json) => Freelancers(
         id: json["User_Id"],
         username: json["username"],
         password: json["password"],
