@@ -63,6 +63,8 @@ class CategoryController extends GetxController {
     }
   }
 
+  void edit({required Map<String, String> data, required File image}) {}
+
   // int? cityId;
 
   // void updateCityId(int id) {

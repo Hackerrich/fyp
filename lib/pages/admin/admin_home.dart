@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:framed_by/pages/admin/tabs/book_now.dart';
+import 'package:framed_by/pages/admin/tabs/freelancers_page.dart';
 import 'package:tabnavigator/tabnavigator.dart';
 import 'package:framed_by/pages/admin/tabs/home_page.dart';
 import 'package:framed_by/pages/admin/tabs/profile.dart';
@@ -51,8 +51,8 @@ class _AdminHomeState extends State<AdminHome> {
           selectedItemColor: Colors.black,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.feedback),
-              label: 'Merchant',
+              icon: Icon(Icons.group),
+              label: 'Freelancer',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),

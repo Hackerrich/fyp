@@ -29,7 +29,7 @@ class Report extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Text("Merchants"),
+        title: const Text("Freelancers"),
       ),
       body: SingleChildScrollView(
         child: Wrap(

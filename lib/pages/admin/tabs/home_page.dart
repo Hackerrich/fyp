@@ -82,6 +82,7 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:framed_by/pages/admin/edit_category_page.dart';
 import 'package:get/get.dart';
 import 'package:framed_by/components/card_button.dart';
 
@@ -105,6 +106,12 @@ class Home extends StatelessWidget {
             lable: "Add Freelancers",
             onTap: () {
               Get.bottomSheet(AddMerchant());
+            },
+          ),
+          Cardbutton(
+            lable: "Edit Category",
+            onTap: () {
+              Get.bottomSheet(const EditCategoryPage());
             },
           ),
         ],
