@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:framed_by/pages/admin/tabs/notification_page.dart';
 import 'package:tabnavigator/tabnavigator.dart';
-import 'package:framed_by/pages/freelancers/tabs/bookings.dart';
+import 'package:framed_by/pages/user/tabs/bookings.dart';
 import 'package:framed_by/pages/freelancers/tabs/home.dart';
 import 'package:framed_by/pages/admin/tabs/profile.dart';
 

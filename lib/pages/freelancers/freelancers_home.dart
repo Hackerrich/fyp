@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:framed_by/pages/admin/tabs/notification_page.dart';
+
 import 'package:tabnavigator/tabnavigator.dart';
-import 'package:framed_by/pages/freelancers/tabs/bookings.dart';
+import 'package:framed_by/pages/freelancers/tabs/add_post.dart';
 import 'package:framed_by/pages/freelancers/tabs/home.dart';
-import 'package:framed_by/pages/admin/tabs/profile.dart';
+import 'package:framed_by/pages/freelancers/tabs/profile.dart';
+import 'package:framed_by/pages/freelancers/tabs/favorite.dart';
 
 class FreelancersHome extends StatefulWidget {
   const FreelancersHome({
@@ -23,21 +24,17 @@ class _FreelancerHomeState extends State<FreelancersHome> {
   Stream<AppTab> get tabStream => _tabController.stream;
 
   final _map = <AppTab, TabBuilder>{
-    AppTab.report: () {
-      return const Booking();
-    },
     AppTab.home: () {
       return const Home();
     },
-    AppTab.profile: () {
-      return const Profile(
-        isFreelancers: true,
-      );
+    AppTab.add_post: () {
+      return const Add_post();
     },
-    AppTab.notification: () {
-      return const Profile(
-        isFreelancers: true,
-      );
+    AppTab.favorite: () {
+      return const Favorite();
+    },
+    AppTab.profile: () {
+      return const Profile();
     },
   };
 
@@ -49,38 +46,6 @@ class _FreelancerHomeState extends State<FreelancersHome> {
     );
   }
 
-  // Widget _buildbottomNavigationBar() {
-  //   return StreamBuilder<AppTab>(
-  //     stream: tabStream,
-  //     initialData: _initTab,
-  //     builder: (context, snapshot) {
-  //       return BottomNavigationBar(
-  //         backgroundColor: Colors.blue,
-  //         items: const <BottomNavigationBarItem>[
-  //           BottomNavigationBarItem(
-  //             icon: Icon(Icons.feedback),
-  //             label: 'Home',
-  //           ),
-  //           BottomNavigationBarItem(
-  //             icon: Icon(Icons.feedback),
-  //             label: 'Book now',
-  //           ),
-  //           BottomNavigationBarItem(
-  //             icon: Icon(Icons.notifications),
-  //             label: 'Notification',
-  //           ),
-  //           BottomNavigationBarItem(
-  //             icon: Icon(Icons.person),
-  //             label: 'Profile',
-  //           ),
-  //         ],
-  //         currentIndex: snapshot.hasData ? snapshot.data!.value : 0,
-  //         onTap: (value) => _tabController.sink.add(AppTab.byValue(value)),
-  //       );
-  //     },
-  //   );
-  // }
-
   Widget _buildbottomNavigationBar() {
     return StreamBuilder<AppTab>(
       stream: tabStream,
@@ -88,18 +53,20 @@ class _FreelancerHomeState extends State<FreelancersHome> {
       builder: (context, snapshot) {
         return BottomNavigationBar(
           backgroundColor: Colors.blueGrey,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.red,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.feedback),
+              icon: Icon(Icons.home),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.feedback),
-              label: 'Book now',
+              icon: Icon(Icons.add),
+              label: 'Add Post',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
-              label: 'Notification',
+              icon: Icon(Icons.favorite),
+              label: 'Favorite',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
@@ -131,21 +98,22 @@ class _FreelancerHomeState extends State<FreelancersHome> {
 class AppTab extends TabType {
   const AppTab._(int value) : super(value);
 
-  static const report = AppTab._(0);
-  static const home = AppTab._(1);
-  static const profile = AppTab._(2);
-  static const notification = AppTab._(3);
+  static const home = AppTab._(0);
+  // ignore: constant_identifier_names
+  static const add_post = AppTab._(1);
+  static const favorite = AppTab._(2);
+  static const profile = AppTab._(3);
 
   static AppTab byValue(int value) {
     switch (value) {
       case 0:
-        return report;
-      case 1:
         return home;
+      case 1:
+        return add_post;
       case 2:
-        return profile;
+        return favorite;
       case 3:
-        return notification;
+        return profile;
       default:
         throw Exception('no tab for such value');
     }

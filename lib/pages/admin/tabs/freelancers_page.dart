@@ -34,10 +34,13 @@ class Report extends StatelessWidget {
       body: SingleChildScrollView(
         child: Wrap(
           children: freelancerController.freelancersList
-              .map((Freelancers freelancers) => Cardbutton(
-                    onTap: () {},
-                    lable: freelancers.username,
-                  ))
+              .map(
+                (Freelancers freelancers) => Cardbutton(
+                  onTap: () {},
+                  lable: freelancers.username,
+                  size: 48.0,
+                ),
+              )
               .toList(),
         ),
       ),

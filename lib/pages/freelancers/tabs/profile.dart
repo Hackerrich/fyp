@@ -13,7 +13,7 @@ class Profile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: isFreelancers ? Colors.black : Colors.black,
-        title: const Text("Profiles"),
+        title: const Text("Profile"),
       ),
       body: Column(
         children: [

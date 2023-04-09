@@ -104,12 +104,14 @@ class Home extends StatelessWidget {
         children: [
           Cardbutton(
             lable: "Add Freelancers",
+            size: 48.0,
             onTap: () {
               Get.bottomSheet(AddMerchant());
             },
           ),
           Cardbutton(
             lable: "Edit Category",
+            size: 48.0,
             onTap: () {
               Get.bottomSheet(const EditCategoryPage());
             },

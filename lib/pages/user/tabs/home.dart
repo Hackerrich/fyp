@@ -12,29 +12,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: const Text("Merchant Home"),
-      ),
-      body: Wrap(
-        children: [
-          Cardbutton(
-            onTap: () {
-              Get.bottomSheet(const CategoryPage());
-            },
-            lable: "Add Category",
-          ),
-          // Cardbutton(
-          //   onTap: () {
-          //     Get.bottomSheet(const ProductPage());
-          //   },
-          //   lable: "Add Product",
-          // ),
-          Cardbutton(
-            onTap: () {
-              Get.bottomSheet(ProductionPage());
-            },
-            lable: "Add Doctor",
-          )
-        ],
+        title: const Text("Freeelancerss Home"),
       ),
     );
   }

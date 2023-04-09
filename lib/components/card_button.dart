@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 class Cardbutton extends StatelessWidget {
   final String lable;
   final Function onTap;
-  const Cardbutton({super.key, this.lable = "lable", required this.onTap});
+  const Cardbutton(
+      {super.key,
+      this.lable = "lable",
+      required this.onTap,
+      required double size});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +16,7 @@ class Cardbutton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Container(
-          height: 250,
+          height: 80,
           width: 350,
           decoration: const BoxDecoration(
             color: Color.fromARGB(255, 197, 197, 197),
@@ -26,7 +30,7 @@ class Cardbutton extends StatelessWidget {
               lable,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                  color: Color.fromARGB(226, 0, 0, 0), fontSize: 30),
+                  color: Color.fromARGB(226, 0, 0, 0), fontSize: 24),
             )),
           ),
         ),

@@ -11,8 +11,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amber,
-        title: const Text("Merchant Home"),
+        backgroundColor: Colors.black,
+        title: const Text("Welcome Home"),
       ),
       body: Wrap(
         children: [
@@ -21,18 +21,14 @@ class Home extends StatelessWidget {
               Get.bottomSheet(const CategoryPage());
             },
             lable: "Add Category",
+            size: 48.0,
           ),
-          // Cardbutton(
-          //   onTap: () {
-          //     Get.bottomSheet(const ProductPage());
-          //   },
-          //   lable: "Add Product",
-          // ),
           Cardbutton(
             onTap: () {
               Get.bottomSheet(ProductionPage());
             },
             lable: "Add Freelancer",
+            size: 48.0,
           )
         ],
       ),

@@ -36,7 +36,7 @@ class _CategoryPageState extends State<CategoryPage> {
             child: Column(
               children: [
                 const Text(
-                  "Category",
+                  "Add Post",
                   style: TextStyle(fontSize: 30),
                 ),
                 const SizedBox(

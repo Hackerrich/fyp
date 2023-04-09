@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:framed_by/pages/user/photographer_home.dart';
 import 'package:get/get.dart';
+import 'package:tabnavigator/tabnavigator.dart';
 
 import '../../services/auth_service.dart';
 import '../auth_checker.dart';
@@ -72,15 +74,15 @@ class HomePage extends StatelessWidget {
             UserAccountsDrawerHeader(
               accountName: Text(userName),
               accountEmail: const Text('johndoe@example.com'),
-              currentAccountPicture: CircleAvatar(
+              currentAccountPicture: const CircleAvatar(
                 child: Icon(Icons.person),
               ),
-              decoration: BoxDecoration(
-                color: Colors.blue,
+              decoration: const BoxDecoration(
+                color: Colors.black,
               ),
             ),
             ListTile(
-              title: const Text('Item 1'),
+              title: const Text('Change Password'),
               onTap: () {
                 Navigator.pop(context);
               },
