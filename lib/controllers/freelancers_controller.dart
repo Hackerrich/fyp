@@ -1,14 +1,16 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:framed_by/models/freelancers.dart';
+
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:framed_by/models/RegisterFreeelancers.dart';
+
 import 'package:framed_by/utils/api.dart';
 
 class FreelancersController extends GetxController {
   var loading = false.obs;
-  List<Freelancers> freelancersList = RxList.empty();
+  Freelancers? freelancersList;
   @override
   void onInit() {
     // TODO: implement onInit
@@ -41,10 +43,13 @@ class FreelancersController extends GetxController {
     loading.value = false;
     var decodedResponse = await jsonDecode(response.body);
     if (decodedResponse["success"]) {
-      var freelancers = await decodedResponse["data"];
-      for (var freelancer in freelancers) {
-        freelancersList.add(freelancer.fromJson(freelancer));
-      }
+      print(response.body);
+      freelancersList = freelancersFromJson(response.body);
+      update(['freelancers']);
+      // var freelancers = await decodedResponse["data"];
+      // for (var freelancer in freelancers) {
+      //   freelancersList = freelancerFromJson(freelancers);
+      // }
       print(freelancersList);
 
       Get.snackbar("Success", decodedResponse["message"],
